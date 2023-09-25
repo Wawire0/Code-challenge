@@ -1,3 +1,4 @@
+
 function calculateDeductions(basicSalary, benefits) {
     const taxRates = {
       low: 0.1,
