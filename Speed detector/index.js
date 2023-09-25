@@ -1,3 +1,4 @@
+
 const readline = require('readline');
 const calculateDemeritPoints = require('./speed detector.js); 
 const rl = readline.createInterface({
