@@ -1,3 +1,4 @@
+
 function calculateDemeritPoints(speed) {
     const speedLimit = 70;
     const kmPerDemeritPoint = 5;
