@@ -1,3 +1,4 @@
+
 const readline = require('readline');
 const calculateDeductions = require('./netSalaryCalculator'); 
 const rl = readline.createInterface({
