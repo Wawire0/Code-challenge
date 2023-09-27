@@ -1,6 +1,6 @@
-
+// The code interacts with the user
 const readline = require('readline');
-const calculateDemeritPoints = require('./speed detector.js); 
+const calculateDemeritPoints = require('./speed detector.js'); 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,

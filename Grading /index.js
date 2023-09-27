@@ -1,4 +1,4 @@
-
+// The user interacts with the code
 const readline = require('readline');
 const calculateGrade = require('./grade.js'); 
 
@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question('Enter student marks (between 0 and 100): ', (input) => {
+rl.question('Enter student marks (between 0 and 100'); ', (input) => 
   const marks = parseFloat(input);
 
   if (!isNaN(marks) && marks >= 0 && marks <= 100) {

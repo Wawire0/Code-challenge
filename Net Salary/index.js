@@ -1,4 +1,4 @@
-
+// Interacts with user to generate the basic salary
 const readline = require('readline');
 const calculateDeductions = require('./netSalaryCalculator'); 
 const rl = readline.createInterface({
