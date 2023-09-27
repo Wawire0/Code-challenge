@@ -1,6 +1,7 @@
-
+// Function 1 : Calculates grade
+// It equates the students to the grade he/she needs to get
 function calculateGrade(marks) {
-    if (marks > 79) {
+    if (marks > 79 &&marks<= 100) {
       grade = 'A';
     } else if (marks >= 60 && marks <= 79) {
       grade = 'B';
