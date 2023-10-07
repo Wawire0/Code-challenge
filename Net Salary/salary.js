@@ -1,51 +1,49 @@
-// Calculates someones basic salary
-function calculateDeductions(basicSalary, benefits) {
-    const taxRates = {
-      lowestRate: 0.1,
-      mediumRate: 0.30,
-      highRate: 0.35,
-    };
-  
-    const nhifRates = {
-      lowestRate: 1000,
-      mediumRate: 2000,
-      highRate: 2500,
-    };
-  
-    const nssfRate = 0.06;
-  
+// Calculates the net salary
+function calculateNetSalary(basicSalary, benefits) {
+  // Define tax rate (payee), NHIF rate, and NSSF rate (replace these with actual rates)
+  const taxRate = 0.2; //  20% tax rate
+  const nhifRate = 0.05; //  5% NHIF rate
+  const nssfRate = 0.1; //  10% NSSF rate
 
-    const grossSalary = basicSalary + benefits;
+  // Calculate gross salary
+  const grossSalary = basicSalary + benefits;
 
-    let paye = 0;
-  
-    if (grossSalary <= 24000) {
-      paye = grossSalary * taxRates.lowestRate;
-    } else if (grossSalary <= 32333) {
-      paye = 2400 + (grossSalary - 24000) * taxRates.mediumRate;
-    } else {
-      paye = 2400 + 1649.95 + (grossSalary - 32333) * taxRates.highRate;
-    }
-  
-    let nhifDeduction = 0;
-  
-    if (grossSalary <= 5999) {
-      nhifDeduction = nhifRates.lowestRate;
-    } else if (grossSalary <= 7999) {
-      nhifDeduction = nhifRates.mediumRate;
-    } else {
-      nhifDeduction = nhifRates.highRate;
-    }
-  
-    const nssfDeduction = grossSalary * nssfRate;
-  
-    return {
-      grossSalary,
-      paye,
-      nhifDeduction,
-      nssfDeduction,
-      netSalary: grossSalary - paye - nhifDeduction - nssfDeduction,
-    };
-  }
-  
-  module.exports = calculateDeductions;
+  // Calculate payee (tax)
+  const payee = grossSalary * taxRate;
+
+  // Calculate NHIF deductions
+  const nhifDeductions = grossSalary * nhifRate;
+
+  // Calculate NSSF deductions
+  const nssfDeductions = grossSalary * nssfRate;
+
+  // Calculate net salary
+  const netSalary = grossSalary - payee - nhifDeductions - nssfDeductions;
+
+  // Return the calculated values
+  return {
+    grossSalary,
+    payee,
+    nhifDeductions,
+    nssfDeductions,
+    netSalary,
+  };
+}
+
+// Example usage:
+const basicSalary = parseFloat(prompt("Enter basic salary:"));
+const benefits = parseFloat(prompt("Enter benefits:"));
+
+if (!isNaN(basicSalary) && !isNaN(benefits)) {
+  const salaryDetails = calculateNetSalary(basicSalary, benefits);
+  console.log("Salary Details:");
+  console.log("Gross Salary:", salaryDetails.grossSalary);
+  console.log("Payee (Tax):", salaryDetails.payee);
+  console.log("NHIF Deductions:", salaryDetails.nhifDeductions);
+  console.log("NSSF Deductions:", salaryDetails.nssfDeductions);
+  console.log("Net Salary:", salaryDetails.netSalary);
+} else {
+  console.log("Invalid input. Please enter valid numbers for basic salary and benefits.");
+}
+
+
